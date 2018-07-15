@@ -1,0 +1,27 @@
+﻿@using Blazor.Toastr
+@page "/"
+@inject IToastrService Toastr
+
+<button class="btn btn-success" onclick="@ToastrSuccess">Success</button>
+<button class="btn btn-info" onclick="@ToastrInfo">Info</button>
+<button class="btn btn-warning" onclick="@ToastrWarning">Warning</button>
+<button class="btn btn-danger" onclick="@ToastrError">Error</button>
+
+@functions{
+    void ToastrSuccess()
+    {
+        Toastr.Show(Enums.ToastrType.Success, "message", "title");
+    }
+    void ToastrInfo()
+    {
+        Toastr.Show(Enums.ToastrType.Info, "message", "title");
+    }
+    void ToastrWarning()
+    {
+        Toastr.Show(Enums.ToastrType.Warning, "message", "title");
+    }
+    void ToastrError()
+    {
+        Toastr.Show(Enums.ToastrType.Error, "message", "title");
+    }
+}
