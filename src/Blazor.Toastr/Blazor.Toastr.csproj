@@ -6,6 +6,12 @@
     <IsPackable>true</IsPackable>
     <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
     <LangVersion>7.3</LangVersion>
+    <Authors>Mario Duarte</Authors>
+    <Description>Toastr notifications in Blazor/C#</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>Toastr Notifications Blazor</PackageTags>
+    <PackageProjectUrl>https://github.com/arapinha/Blazor.Toastr</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/arapinha/Blazor.Toastr</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
