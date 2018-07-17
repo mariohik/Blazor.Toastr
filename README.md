@@ -1,7 +1,7 @@
 # Blazor.Notifications
 Implementation of the [Toastr Notifications](http://codeseven.github.io/toastr/) in C# for [Blazor](https://github.com/aspnet/Blazor) via Interop
 
-![Blazor.Toastr](https://imgur.com/b1kgkay)
+![Blazor.Toastr](https://i.imgur.com/LJAQcGU.png)
 
 
 > ⚠️ Warning: This project is build on top of an experimental framework. There is a high propability that there will be breaking changes from version to version.  
