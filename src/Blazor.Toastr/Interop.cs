@@ -27,7 +27,7 @@ namespace Blazor.Toastr
             }
         }
 
-        public static void ConfigOptions(ToastrOptions toastrOptions)
+        public static void ConfigOptions(ToastrOptionsInternal toastrOptions)
         {
             RegisteredFunction.Invoke<bool>("Blazor.Toastr.ConfigOptions", JsonUtil.Serialize(toastrOptions));
         }

@@ -1,8 +1,6 @@
-﻿using Blazor.Toastr.Enums;
-
-namespace Blazor.Toastr
+﻿namespace Blazor.Toastr
 {
-    public class ToastrOptions
+    internal class ToastrOptionsInternal
     {
         public bool closeButton { get; set; } = false;
 
@@ -12,11 +10,11 @@ namespace Blazor.Toastr
 
         public bool progressBar { get; set; } = false;
 
-        public PositionClassType positionClass { get; set; } = PositionClassType.TopRight;
+        public string positionClass { get; set; } = "toast-top-right";
 
         public bool preventDuplicates { get; set; } = false;
 
-        public string onClick { get; set; } = null;
+        public string onclick { get; set; } = null;
 
         public long showDuration { get; set; } = 300;
 
@@ -26,13 +24,13 @@ namespace Blazor.Toastr
 
         public long extendedTimeOut { get; set; } = 1000;
 
-        public EasingType showEasing { get; set; } = EasingType.Swing;
+        public string showEasing { get; set; } = "swing";
 
-        public EasingType hideEasing { get; set; } = EasingType.Linear;
+        public string hideEasing { get; set; } = "linear";
 
-        public EffectType showMethod { get; set; } = EffectType.FadeIn;
+        public string showMethod { get; set; } = "fadeIn";
 
-        public EffectType hideMethod { get; set; } = EffectType.FadeOut;
+        public string hideMethod { get; set; } = "fadeOut";
 
     }
 }

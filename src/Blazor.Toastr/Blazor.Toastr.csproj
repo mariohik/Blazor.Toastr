@@ -12,6 +12,7 @@
     <PackageTags>Toastr Notifications Blazor</PackageTags>
     <PackageProjectUrl>https://github.com/arapinha/Blazor.Toastr</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arapinha/Blazor.Toastr</RepositoryUrl>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,10 @@
     <EmbeddedResource Include="content\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
     <EmbeddedResource Include="content\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(Filename)%(Extension)" />
     <EmbeddedResource Include="content\**" Exclude="**\*.js;**\*.css" LogicalName="blazor:file:%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="content\jquery-3.3.1.min.js" />
   </ItemGroup>
 
   <ItemGroup>

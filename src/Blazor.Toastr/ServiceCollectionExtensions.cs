@@ -4,6 +4,11 @@ namespace Blazor.Toastr
 {
     public static class ServiceCollectionExtensions
     {
+        public static void AddToastr(this IServiceCollection services, ToastrOptions options)
+        {
+            services.AddSingleton<IToastrService>(new ToastrService(options));
+        }
+
         public static void AddToastr(this IServiceCollection services)
         {
             services.AddSingleton<IToastrService>(new ToastrService());

@@ -12,7 +12,7 @@ namespace Blazor.Toastr.Sample
             var serviceProvider = new BrowserServiceProvider(services =>
             {
                 // Add any custom services here
-                services.AddToastr();
+                services.AddToastr(new ToastrOptions { closeButton = true, hideDuration = 30000 });
             });
 
             new BrowserRenderer(serviceProvider).AddComponent<App>("app");
