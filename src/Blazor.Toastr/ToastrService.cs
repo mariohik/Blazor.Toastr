@@ -124,7 +124,7 @@ namespace Blazor.Toastr
                     break;
             }
 
-            Interop.ConfigOptions(intOptions);
+            Interop.toastrOptions = intOptions;
         }
 
         //public ToastrService(bool closeButton = false, bool debug = false, bool newestOnTop = false, bool progressBar = false,

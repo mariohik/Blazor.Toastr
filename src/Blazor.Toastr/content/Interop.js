@@ -1,24 +1,14 @@
-﻿Blazor.registerFunction("Blazor.Toastr.Success",
-    (message, title) => {
-        toastr.success(message, title);
-    });
-
-Blazor.registerFunction("Blazor.Toastr.Info",
-    (message, title) => {
-        toastr.info(message, title);
-    });
-
-Blazor.registerFunction("Blazor.Toastr.Warning",
-    (message, title) => {
-        toastr.warning(message, title);
-    });
-
-Blazor.registerFunction("Blazor.Toastr.Error",
-    (message, title) => {
-        toastr.error(message, title);
-    });
-
-Blazor.registerFunction("Blazor.Toastr.ConfigOptions",
-    (options) => {
-        toastr.options = $.parseJSON(options);
-    });
+﻿window.toastrInterop = {
+    success: function (message, title, options) {
+        return toastr.success(message, title, $.parseJSON(options));
+    },
+    error: function (message, title, options) {
+        return toastr.error(message, title, $.parseJSON(options));
+    },
+    info: function (message, title, options) {
+        return toastr.info(message, title, $.parseJSON(options));
+    },
+    warning: function (message, title, options) {
+        return toastr.warning(message, title, $.parseJSON(options));
+    }
+};

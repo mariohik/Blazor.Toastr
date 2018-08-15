@@ -1,35 +1,31 @@
 ﻿using Blazor.Toastr.Enums;
-using Microsoft.AspNetCore.Blazor;
-using Microsoft.AspNetCore.Blazor.Browser.Interop;
+using Microsoft.JSInterop;
 
 namespace Blazor.Toastr
 {
     internal static class Interop
     {
+        public static ToastrOptionsInternal toastrOptions;
+
         public static void ShowToastr(ToastrType toastrType, string message, string title = null)
         {
             switch (toastrType)
             {
                 case ToastrType.Success:
-                    RegisteredFunction.Invoke<bool>("Blazor.Toastr.Success", message, title);
+                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.success", message, title, Json.Serialize(toastrOptions));
                     break;
                 case ToastrType.Info:
-                    RegisteredFunction.Invoke<bool>("Blazor.Toastr.Info", message, title);
+                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.info", message, title, Json.Serialize(toastrOptions));
                     break;
                 case ToastrType.Warning:
-                    RegisteredFunction.Invoke<bool>("Blazor.Toastr.Warning", message, title);
+                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.warning", message, title, Json.Serialize(toastrOptions));
                     break;
                 case ToastrType.Error:
-                    RegisteredFunction.Invoke<bool>("Blazor.Toastr.Error", message, title);
+                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.error", message, title, Json.Serialize(toastrOptions));
                     break;
                 default:
                     break;
             }
-        }
-
-        public static void ConfigOptions(ToastrOptionsInternal toastrOptions)
-        {
-            RegisteredFunction.Invoke<bool>("Blazor.Toastr.ConfigOptions", JsonUtil.Serialize(toastrOptions));
         }
     }
 }
