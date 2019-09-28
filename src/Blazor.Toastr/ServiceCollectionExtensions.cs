@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Components.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop;
 
 namespace Blazor.Toastr
 {
@@ -14,6 +16,12 @@ namespace Blazor.Toastr
         {
             services.AddSingleton<IToastrService>(new ToastrService());
             return services;
+        }
+
+        public static IComponentsApplicationBuilder UseToastr(this IComponentsApplicationBuilder app)
+        {
+            Interop.JsRuntime = app.Services.GetService<IJSRuntime>();
+            return app;
         }
     }
 }

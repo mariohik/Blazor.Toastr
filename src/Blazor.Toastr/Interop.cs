@@ -1,5 +1,6 @@
 ﻿using Blazor.Toastr.Enums;
 using Microsoft.JSInterop;
+using Newtonsoft.Json;
 
 namespace Blazor.Toastr
 {
@@ -7,21 +8,23 @@ namespace Blazor.Toastr
     {
         public static ToastrOptionsInternal toastrOptions;
 
-        public static void ShowToastr(ToastrType toastrType, string message, string title = null)
+        internal static IJSRuntime JsRuntime { get; set; }
+
+        public static void ShowToastr(ToastrType toastrType, string message, string title = null, ToastrOptions options = null)
         {
             switch (toastrType)
             {
                 case ToastrType.Success:
-                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.success", message, title, Json.Serialize(toastrOptions));
+                    JsRuntime.InvokeAsync<string>("toastrInterop.success", message, title, JsonConvert.SerializeObject(toastrOptions ?? options.ToInternal()));
                     break;
                 case ToastrType.Info:
-                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.info", message, title, Json.Serialize(toastrOptions));
+                    JsRuntime.InvokeAsync<string>("toastrInterop.info", message, title, JsonConvert.SerializeObject(toastrOptions ?? options.ToInternal()));
                     break;
                 case ToastrType.Warning:
-                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.warning", message, title, Json.Serialize(toastrOptions));
+                    JsRuntime.InvokeAsync<string>("toastrInterop.warning", message, title, JsonConvert.SerializeObject(toastrOptions ?? options.ToInternal()));
                     break;
                 case ToastrType.Error:
-                    JSRuntime.Current.InvokeAsync<string>("toastrInterop.error", message, title, Json.Serialize(toastrOptions));
+                    JsRuntime.InvokeAsync<string>("toastrInterop.error", message, title, JsonConvert.SerializeObject(toastrOptions ?? options.ToInternal()));
                     break;
                 default:
                     break;

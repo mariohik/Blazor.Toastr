@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Blazor.Builder;
+﻿using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Blazor.Toastr.Sample
@@ -11,8 +11,9 @@ namespace Blazor.Toastr.Sample
             services.AddToastr(new ToastrOptions { closeButton = true, hideDuration = 30000 });
         }
 
-        public void Configure(IBlazorApplicationBuilder app)
+        public void Configure(IComponentsApplicationBuilder app)
         {
+            app.UseToastr();
             app.AddComponent<App>("app");
         }
     }
