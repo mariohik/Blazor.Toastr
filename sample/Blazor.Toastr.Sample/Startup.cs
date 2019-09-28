@@ -13,6 +13,7 @@ namespace Blazor.Toastr.Sample
 
         public void Configure(IBlazorApplicationBuilder app)
         {
+            app.UseToastr();
             app.AddComponent<App>("app");
         }
     }
