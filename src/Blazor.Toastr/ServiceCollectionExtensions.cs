@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Blazor.Builder;
+﻿using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.JSInterop;
 
@@ -18,7 +18,7 @@ namespace Blazor.Toastr
             return services;
         }
 
-        public static IBlazorApplicationBuilder UseToastr(this IBlazorApplicationBuilder app)
+        public static IComponentsApplicationBuilder UseToastr(this IComponentsApplicationBuilder app)
         {
             Interop.JsRuntime = app.Services.GetService<IJSRuntime>();
             return app;
