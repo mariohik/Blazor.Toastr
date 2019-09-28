@@ -42,6 +42,17 @@ var serviceProvider = new BrowserServiceProvider(services =>
 });
 ```
 
+### Initizlie Toastr
+
+```csharp
+
+public void Configure(IComponentsApplicationBuilder app)
+{
+    app.UseToastr();  // < --- Add this for initialization
+    app.AddComponent<App>("app");
+}
+```
+
 ### Inject into component/pages
 ```csharp
 @using Blazor.Toastr
